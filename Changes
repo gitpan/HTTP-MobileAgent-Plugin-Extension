@@ -1,0 +1,30 @@
+Revision history for Perl extension HTTP::MobileAgent::Plugin::Extension
+
+0.01022  Wed Jun 30 18:23:00 2004 JST
+    - original version based on Jun. 29th, 2004 's data
+
+0.02022  Thu Jul 1 17:11:00 2004 JST
+    - Add new model of AU by KDDI
+
+0.03022  Thu Jul 16 18:46:00 2004 JST
+    - Add new model of NTT DoCoMo
+
+0.04022  Thu Aug 5 14:30:00 2004 JST
+    - Add new model of NTT DoCoMo
+    - Add new model of AirH" Phone
+
+0.10022  Fri Aug 13 20:54:00 2004 JST
+    - Add IP Adress check method
+
+0.11022  Fri Aug 24 15:03:00 2004 JST
+    - Add New GW IP Adress of DDIPOCKET
+
+0.12022
+    - Change the name of module 
+        from HTTP::MobileAgent::Ex
+        to   HTTP::MobileAgent::Plugin::Extension
+    - Add New model of NTT DoCoMo
+    - Add New model of AU by KDDI
+    - Add New GW IP Adress of DDIPOCKET
+    - Fixes bug of logic judging vodafone terminal supports 
+      Station function or not

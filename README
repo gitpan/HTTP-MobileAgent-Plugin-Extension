@@ -1,0 +1,109 @@
+NAME
+    HTTP::MobileAgent::Plugin::Extension - Extension for HTTP::MobileAgent
+
+SYNOPSIS
+      use HTTP::MobileAgent::Plugin::Extension;
+
+      my $agent = HTTP::MobileAgent->new;
+
+        # If terminal supports image format?
+
+      print "Support gif!\n" if ($agent->is_gif);
+      print "Support jpeg!\n" if ($agent->is_jpeg);
+      print "Support png!\n" if ($agent->is_png);
+
+      if ($agent->is_docomo) {  # @docomo
+ 
+        # Support utn serial number?
+          print "Support utn!\n" if ($agent->is_utn);
+
+        # Support Location service?
+        # Add data for F505iGPS
+          print "Support GPS!\n" if ($agent->is_gps);
+
+        # Add data for 900i,900i+,506i,213i
+
+          print "FOMA 900i!\n" if ($agent->model =~ /900i/);
+          print "premini!\n" if ($agent->model =~ /213i/);
+          print "Last mova!\n" if ($agent->model =~ /506i/);
+
+      } elsif ($agent->is_vodafone) {  # @vodafone
+
+        # Support Location service?
+          print "Support Station!\n" if ($agent->is_station);
+
+      } elsif ($agent->is_ezweb) {  # @EZWeb
+
+        # Support Location service?
+          print "Support EZNavi!\n" if ($agent->is_eznavi);
+          print "Support GPS!\n" if ($agent->is_gps);
+
+        # Get Subscriber ID
+          print "Subscriber ID is ".$agent->serial_number."\n";
+          print "This is long type Subscriber ID. If you want to handle it short(14digit),\n";
+          print "Please use HTTP::MobileAgent::Plugin::Extension like this: use HTTP::MobileAgent::Plugin::Extension qw(ez_shortSubID);\n";
+
+        # Get model name
+          print "Terminal model name is".$agent->model."\n";
+          print "This name is same with Device id (Like HI32,SA27,KCU1...).\n";
+          print "If you want to use Real model name (Like W21H,A5505SA,TK41) as model name,\n";
+          print "Please use HTTP::MobileAgent::Plugin::Extension like this: use HTTP::MobileAgent::Plugin::Extension qw(ez_realnameAsModel);\n";
+
+        # Get Carrier name
+          print "Carrier name is correct!\n" if ($agent->carrier eq 'E');
+          print "Carrier long name is correct!\n" if ($agent->carrier_longname eq 'EZweb');
+          print "AU by KDDI and TU-KA are both include as EZweb.\nIf you want to devide KDDI and TU-KA each other,\n";
+          print "Please use HTTP::MobileAgent::Plugin::Extension like this: use HTTP::MobileAgent::Plugin::Extension qw(ez_judgeKDDITUKA);\n";
+          print "If you do so, carrier method returns 'A'(AU by KDDI) or 'T'(TU-KA).\n";
+          print "carrier_longname method returns 'KDDI'(AU by KDDI) or 'TU-KA'(TU-KA).\n";
+
+      } elsif ($agent->is_airh_phone) {  # @AirH" Phone
+
+        # Add data for KYOCERA AH-K3001V
+          print "KYO-PON!\n" if ($agent->model =~ /AH-K3001V/);
+
+        # Add data for AirH" Phone's Display size
+          print "Display width: ".$agent->display->width."\n";
+          print "Display height: ".$agent->display->height."\n";
+          print "Display is color?: ".$agent->display->color."\n";
+          print "Display color depth: ".$agent->display->depth."\n";
+      } elsif ($agent->is_non_mobile) {
+          if ($agent->user_agent =~ /AH-K3001V/)
+          {
+            print "Your browser is DDIPOCKET AH-K3001V, but in Opera mode, so judged as Nonmobile.\n";
+            print "If you want to judge Opera-mode-AH-K3001V as AirH" Phone,\n";
+            print "Please use HTTP::MobileAgent::Plugin::Extension like this: use HTTP::MobileAgent::Plugin::Extension qw(ah_operaAsMobile);\n";
+          }
+      }
+
+      # Check remote address (IP of GW server between mobile phone network and Internet)
+      # Add from Ver. 0.10022
+
+      print $agent->check_network($ENV{REMOTE_ADDR}) ? "Trusted" : "Misrepresentation...?";
+
+DESCRIPTION
+    HTTP::MobileAgent::Plugin::Extension extends the HTTP::MobileAgent module.
+    This version 0.12022 is suit for HTTP::MobileAgent 0.22.
+    Version number 0.12 is version of HTTP::MobileAgent::Plugin::Extension itself,
+    and last 022 means suit version for HTTP::MobileAgent (0.22).
+
+FUNCTIONS
+    If you use this module in your program, it extends data or method 
+    in HTTP::MobileAgent.
+    Don't use HTTP::MobileAgent::Plugin::Extension as object constructor!
+    This is not subclass of HTTP::MobileAgent, but extends function of
+    HTTP::MobileAgent itself.
+
+    Please see the way to use this, please see upper SYNOPSIS part.
+    It contains the way to use this.
+
+AUTHOR
+    OHTSUKA Ko-hei <nene@kokogiko.net>
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
+SEE ALSO
+    the HTTP::MobileAgent manpage, HTTP::MobileAgent::DoCoMo manpage, 
+    the HTTP::MobileAgent::JPhone manpage, the HTTP::MobileAgent::EZweb 
+    manpage, the HTTP::MobileAgent::NonMobile manpage.

@@ -1,0 +1,19 @@
+Changes
+MANIFEST			This list of files
+Makefile.PL
+README
+lib/HTTP/MobileAgent/Ex.pm
+lib/HTTP/MobileAgent/Plugin/Extension.pm
+lib/HTTP/MobileAgent/DoCoMoDisplayMap.pm
+lib/HTTP/MobileAgent/Plugin/Extension/AirHPhoneData.pm
+lib/HTTP/MobileAgent/Plugin/Extension/EZwebData.pm
+lib/HTTP/MobileAgent/Plugin/Extension/IPCheck.pm
+t/00_compile.t
+t/01_docomo.t
+t/02_vodafone.t
+t/03_ezweb.t
+t/04_airh.t
+t/05_display.t
+t/06_image.t
+t/07_ipcheck.t
+META.yml                                 Module meta-data (added by MakeMaker)
