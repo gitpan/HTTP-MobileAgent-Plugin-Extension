@@ -1,7 +1,7 @@
 # http://module-build.sourceforge.net/META-spec.html
 #XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
 name:         HTTP-MobileAgent-Plugin-Extension
-version:      0.12022
+version:      0.13022
 version_from: lib/HTTP/MobileAgent/Plugin/Extension.pm
 installdirs:  site
 requires:

@@ -28,3 +28,7 @@ Revision history for Perl extension HTTP::MobileAgent::Plugin::Extension
     - Add New GW IP Adress of DDIPOCKET
     - Fixes bug of logic judging vodafone terminal supports 
       Station function or not
+
+0.13022
+    - Add New model of NTT DoCoMo
+    - Add New GW IP Adress of DDIPOCKET

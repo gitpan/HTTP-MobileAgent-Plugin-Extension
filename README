@@ -83,8 +83,8 @@ SYNOPSIS
 
 DESCRIPTION
     HTTP::MobileAgent::Plugin::Extension extends the HTTP::MobileAgent module.
-    This version 0.12022 is suit for HTTP::MobileAgent 0.22.
-    Version number 0.12 is version of HTTP::MobileAgent::Plugin::Extension itself,
+    This version 0.13022 is suit for HTTP::MobileAgent 0.22.
+    Version number 0.13 is version of HTTP::MobileAgent::Plugin::Extension itself,
     and last 022 means suit version for HTTP::MobileAgent (0.22).
 
 FUNCTIONS
